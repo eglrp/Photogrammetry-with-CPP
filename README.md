@@ -14,11 +14,23 @@ Please contact me with any questions, comments, or advice.  I am not the worlds
 greatest writer, so please feel free to help me along.  If there is any specific
 information you would like to see, please let me know. 
 
+## Project Organization
+
+The base directory is divided into sections. 
+
+1.  book : Contains all book-related material, including the build scripts, source, images, and other artifacts.
+
+2.  cmake : Contains all required CMake materials include CMake scripts and modules.
+
+3.  code : Contains all sample code used in the book.
+
 ## Building the Document
 
 1. Build the CMake Project
 
     mkdir release
+    
     cmake ..
+    
     make
     
