@@ -26,7 +26,7 @@ The base directory is divided into sections.
 
 ## Building the Document
 
-1. Build the CMake Project
+Build the CMake Project
 
     mkdir release
     
