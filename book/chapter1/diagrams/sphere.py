@@ -38,6 +38,7 @@ mp.drawcountries(linewidth=0.25)
 # draw the edge of the mp projection region (the projection limb)
 #mp.drawmpboundary(fill_color='aqua')
 
+
 # draw lat/lon grid lines every 30 degrees.
 mp.drawmeridians(np.arange(0,360,1),  labels=[True, False, False, True])
 mp.drawparallels(np.arange(-90,90,1), labels=[False, True, True, False])
@@ -46,6 +47,29 @@ mp.drawstates(linewidth=1)
 mp.drawcountries(linewidth=2)
 
 mp.shadedrelief()
+
+
+#---------------------------------#
+#-      Create Vector Plot       -#
+#---------------------------------#
+fig2 = plt.figure(figsize=(8,8))
+
+ax = fig2.gca(projection='3d')
+ax.plot([-1,1],[0,0],[0,0])
+ax.plot([0,0],[-1,1],[0,0])
+ax.plot([0,0],[0,0],[-1,1])
+
+ax.plot(np.sin(np.linspace(-2*np.pi, 2*np.pi, 360)),
+        np.cos(np.linspace(       0, 4*np.pi, 360)),
+        np.linspace(       0,       0, 360))
+
+ax.plot(np.linspace(       0,       0, 360),
+        np.cos(np.linspace(       0, 4*np.pi, 360)),
+        np.sin(np.linspace(-2*np.pi, 2*np.pi, 360)))
+
+ax.plot(np.sin(np.linspace(-2*np.pi, 2*np.pi, 360)),
+        np.linspace(       0,       0, 360),
+        np.cos(np.linspace(       0, 4*np.pi, 360)))
 
 
 plt.show()
