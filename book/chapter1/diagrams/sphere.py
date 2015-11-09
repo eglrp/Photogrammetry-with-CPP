@@ -1,30 +1,31 @@
 #!/usr/bin/env python
 
 # -*- coding: utf-8 -*-
-from mpl_toolkits.mplot3d import Axes3D
+from mpl_toolkits.mplot3d import Axes3D, proj3d
 from mpl_toolkits.basemap import Basemap
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 from itertools import product, combinations
+import pylab, math
 
 
-#draw cube
-#r = [-1, 1]
-#for s, e in combinations(np.array(list(product(r,r,r))), 2):
-#        if np.sum(np.abs(s-e)) == r[1]-r[0]:
-#                    ax.plot3D(*zip(s,e), color="b")
+class Arrow3D(mpl.patches.FancyArrowPatch):
+    
+    def __init__(self, xs, ys, zs, *args, **kwargs):
+        mpl.patches.FancyArrowPatch.__init__(self, (0,0), (0,0), *args, **kwargs)
+        self._verts3d = xs, ys, zs
+        
+    def draw(self, renderer):
+        xs3d, ys3d, zs3d = self._verts3d
+        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
+        self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
+        mpl.patches.FancyArrowPatch.draw(self, renderer)
 
-#draw sphere
-#HRAN=30j
-#u, v = np.mgrid[0:2*np.pi:HRAN, 0:np.pi:10j]
-#x=np.cos(u)*np.sin(v)
-#y=np.sin(u)*np.sin(v)
-#z=np.cos(v)
-#ax.plot_wireframe(x, y, z, color="r")
 
 
 #   Plot
-plt.figure(figsize=(8,8))
+plt.figure(figsize=(14,14))
 
 
 mp = Basemap( width=1500000,height=1125000,
@@ -34,9 +35,6 @@ mp = Basemap( width=1500000,height=1125000,
 # draw the edge of the mp projection region (the projection limb)
 mp.drawcoastlines(linewidth=0.25)
 mp.drawcountries(linewidth=0.25)
-
-# draw the edge of the mp projection region (the projection limb)
-#mp.drawmpboundary(fill_color='aqua')
 
 
 # draw lat/lon grid lines every 30 degrees.
@@ -48,28 +46,67 @@ mp.drawcountries(linewidth=2)
 
 mp.shadedrelief()
 
+#  Write the figure
+plt.savefig('figure_1_1.png')
 
 #---------------------------------#
 #-      Create Vector Plot       -#
 #---------------------------------#
-fig2 = plt.figure(figsize=(8,8))
+fig2 = plt.figure(figsize=(14,14))
 
 ax = fig2.gca(projection='3d')
-ax.plot([-1,1],[0,0],[0,0])
-ax.plot([0,0],[-1,1],[0,0])
-ax.plot([0,0],[0,0],[-1,1])
 
+#  Draw Axes
+ax.plot([ 0,1],[ 0,0],[ 0,0],'b')
+ax.plot([-1,0],[ 0,0],[ 0,0],'b--')
+ax.plot([ 0,0],[-1,0],[ 0,0],'b--')
+ax.plot([ 0,0],[ 0,1],[ 0,0],'b')
+ax.plot([ 0,0],[ 0,0],[-1,0],'b--')
+ax.plot([ 0,0],[ 0,0],[ 0,1],'b')
+
+#  Draw Spheres
 ax.plot(np.sin(np.linspace(-2*np.pi, 2*np.pi, 360)),
         np.cos(np.linspace(       0, 4*np.pi, 360)),
-        np.linspace(       0,       0, 360))
+        np.linspace(       0,       0, 360),
+        'b')
 
 ax.plot(np.linspace(       0,       0, 360),
         np.cos(np.linspace(       0, 4*np.pi, 360)),
-        np.sin(np.linspace(-2*np.pi, 2*np.pi, 360)))
+        np.sin(np.linspace(-2*np.pi, 2*np.pi, 360)),
+        'b')
 
 ax.plot(np.sin(np.linspace(-2*np.pi, 2*np.pi, 360)),
         np.linspace(       0,       0, 360),
-        np.cos(np.linspace(       0, 4*np.pi, 360)))
+        np.cos(np.linspace(       0, 4*np.pi, 360)),
+        'b')
 
+
+#  Add Arrows
+theta = 45 * math.pi / 180.0
+phi   = 45 * math.pi / 180.0
+px = math.sin(theta) * math.cos(phi)
+py = math.sin(theta) * math.sin(phi)
+pz = math.cos(theta)
+arrow = Arrow3D( [0, px], [0, py], [0, pz], arrowstyle='-|>', color='k', lw=2 )
+ax.add_artist( arrow )
+
+#  Add Arrow Arcs
+ar = 0.4
+ax.plot(ar * np.sin(np.linspace(0, np.pi/4, 45)),
+        ar * np.cos(np.linspace(0, np.pi/4, 45)),
+        ar * np.linspace(       0,       0, 45),
+        'r')
+
+theta = np.linspace(np.pi/4, np.pi/4, 45)
+phi   = np.linspace(0, np.pi/4, 45)
+
+px = ar * np.cos(theta) * np.cos(phi)
+py = ar * np.sin(theta) * np.cos(phi)
+pz = ar * np.sin(phi)
+
+ax.plot( px, py, pz, 'g')
+
+#  Write the figure
+plt.savefig('figure_1_2.png')
 
 plt.show()
