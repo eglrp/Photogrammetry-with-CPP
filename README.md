@@ -24,6 +24,25 @@ The base directory is divided into sections.
 
 3.  code : Contains all sample code used in the book.
 
+## Project Dependencies
+
+### Documentation
+
+- texlive or other LaTeX Compiler
+- CMake
+
+### Software
+
+- GDAL   : Geospatial Data Abstraction Library
+- OpenCV : C++ Image Processing and Computer Vision Library
+
+### Mac OSX with MacPorts
+
+- texlive-latex-extra
+- cmake
+
+
+
 ## Building the Document
 
 Build the CMake Project

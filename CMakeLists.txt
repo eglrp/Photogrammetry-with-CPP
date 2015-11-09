@@ -11,6 +11,13 @@
 cmake_minimum_required( VERSION 2.8 FATAL_ERROR )
 
 
+#---------------------------------------#
+#-    Add Additional CMake Modules     -#
+#---------------------------------------#
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+include(${CMAKE_SOURCE_DIR}/cmake/Modules/UseLatex.cmake)
+
+
 #------------------------------#
 #-    Set the Project Name    -#
 #------------------------------#
