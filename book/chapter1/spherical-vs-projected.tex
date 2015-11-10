@@ -7,13 +7,58 @@
 %--------------------------------------------%
 %-       Spherical Coordinate Systems       -%
 %--------------------------------------------%
-\addcontentsline{toc}{subsection}{Spherical Coordinate System}
-\subsection*{Spherical Coordinate System}
+\addcontentsline{toc}{subsection}{Spherical Coordinates}
+\subsection*{Spherical Coordinates}
 
 Most users are familiar with this first class of coordinates, defined as a \emph{spherical}
-coordinate system.  This is commonly referred to the \emp{latitude} and \emph{longitude}.
+coordinate system.  This is commonly referred to the \emph{latitude} and \emph{longitude}.
 Spherical coordinates in mathematics typically take the form of $r, \theta,$ and $\phi$ where
 $r$ is the radius from the center to the coordinate, $\theta$ is the angle on the x,y plan,
-and $\phi$ is the angle from the z axis to xy plane.  Figure \ref{fig:figure_1_1} shows
+and $\phi$ is the angle from the z axis to xy plane.  Figure \ref{fig:figure_1_2} shows
+the relationship between Cartesian and Spherical coordinates. 
+
+\begin{figure}[h!]
+\includegraphics[width=3in]{chapter1/diagrams/figure_1_2.png}
+\caption{Relationship between spherical and cartesian coordinates.}
+\label{fig:figure_1_2}
+\end{figure}
+
+Now to describe spherical coordinates in a Geographic setting, 
+$\theta$ becomes \emph{longitude}, $\phi$ becomes \emph{latitude}, and 
+$r$ is modified from the distance from the radius, to the distance from the
+\emph{datum}.  Datums will be discussed later.  To continue, consider 
+a datum as an ellipsoid which models the Earth for which you can describe
+the ``sea-level" or zero elevation.  
+
+Geographic coordinates are commonly described in degrees.  Figure 
+\ref{fig:figure_1_1} shows the degrees of latitude and longitude
+for the Lake Tahoe region of the United States.
+
+\begin{figure}[h!]
+\includegraphics[width=3in]{chapter1/diagrams/figure_1_1.png}
+\caption{Shaded relief map of Lake Tahoe showing lines of latitude and longitude.}
+\label{fig:figure_1_1}
+\end{figure}
+
+%-------------------------------------------%
+%-       Projected Coordinate Systems      -%
+%-------------------------------------------%
+\addcontentsline{toc}{subsection}{Projected Coordinates}
+\subsection*{Projected Coordinates}
+
+Expressing coordinates in latitude and longitude is great for navigation 
+as the coordinates are easily relatable to the world-wide coordinates. 
+The issue however comes when we try to create maps and other products using
+spherical coordinates.  Maps require a 2d \emph{Projection} or \emph{mapping}
+from the globe to a flat surface.  
+
+
+%-----------------------------------------------%
+%-        Universal Transverse Mercator        -%
+%-----------------------------------------------%
+\addcontentsline{toc}{subsubsection}{Universal Transverse Mercator}
+\subsubsection*{Universal Transverse Mercator (UTM)}
+
+
 
 

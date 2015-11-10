@@ -14,6 +14,19 @@ set( BOOK_LATEX_FILES
         core/structure.tex
         chapter1/overview.tex
         chapter1/spherical-vs-projected.tex
+        chapter1/gis-data-formats.tex
+        chapter2/overview.tex
+        chapter2/gdal-overview.tex
+        chapter2/geographiclib-overview.tex
+)
+
+
+#--------------------------------------------#
+#-     Define the Book Image File List      -#
+#--------------------------------------------#
+set( BOOK_IMAGE_FILES
+     chapter1/diagrams/figure_1_1.png
+     chapter1/diagrams/figure_1_2.png
 )
 
 
@@ -31,6 +44,8 @@ add_latex_document( photogrammetry-with-cpp.tex
                         ${BOOK_OUTPUT_FORMAT}
                         TARGET_NAME
                             photogrammetry-with-cpp
+                        IMAGES
+                            ${BOOK_IMAGE_FILES}
 )
 
 

@@ -1,0 +1,65 @@
+%    File:    gdal-overview.tex
+%    Author:  Marvin Smith
+%    Date:    11/9/2015
+%
+
+
+%------------------------------------------------%
+%-                     GDAL                     -%
+%------------------------------------------------%
+\addcontentsline{toc}{section}{GDAL}
+\section*{GDAL}
+
+For many applications, this may be the only tool you will ever need.  GDAL
+stands for the \emph{Geospatial Data Abstraction Library}.  GDAL is largely 
+a file input/output tool which can manage well over 100 different raster and vector
+files.  GDAL also contains \emph{OGR} which can do coordinate conversion
+using the \emph{Proj4} library.
+
+
+
+%-------------------------------%
+%-       Installing GDAL       -%
+%-------------------------------%
+\addcontentsline{toc}{subsection}{Installing GDAL}
+\subsection*{Installing GDAL}
+
+
+\addcontentsline{toc}{subsubsection}{Windows}
+\subsubsection*{Window}
+
+
+
+%----------------------%
+%-      Mac OS X      -%
+%----------------------%
+\addcontentsline{toc}{subsubsection}{Mac OSX}
+\subsubsection*{Mac OSX}
+
+The recommended method of installing GDAL is through the MacPorts package manager.
+There are other packages available, however MacPorts is unique in that it provides both a customizable
+installation through the \texttt{variant} flag and it can be updated through
+the package manager.
+
+
+%--------------------------------%
+%-     Building from Source     -%
+%--------------------------------%
+\addcontentsline{toc}{subsubsection}{Building from Source}
+\subsubsection*{Building from Source}
+
+Before installing from source, first read the GDAL documentation 
+at \href{http://gdal.org} for your respective system.  GDAL 
+has a huge number of dependencies, most of which are optional. 
+As a consequence, it may be difficult for new users to know what is needed
+for their respective applications.  In general, here are a good set of
+packages to consider installing prior to building GDAL.
+
+\begin{table}[h!]
+\begin{tabular}{|l|l|l|}\hline
+\textbf{Package} & \textbf{Description}   & \textbf{More Info} \\\hline
+proj4            & Coordinate conversions & \url{http://trac.osgeo.org/proj/} \\\hline
+openjpeg         & JPEG2000 reader        & \url{http://www.openjpeg.org/} \\\hline
+\end{tabular}
+\end{table}
+
