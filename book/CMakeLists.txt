@@ -20,6 +20,7 @@ set( BOOK_LATEX_FILES
         chapter2/geographiclib-overview.tex
         chapter3/overview.tex
         chapter3/gdal-examples.tex
+        ../code/common/Coordinate_Utilities.cpp
 )
 
 

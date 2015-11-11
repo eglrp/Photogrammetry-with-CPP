@@ -4,5 +4,21 @@
 %
 
 
+%-------------------------------------%
+%-       Simple GDAL Example         -%
+%-------------------------------------%
+\addcontentsline{toc}{subsection}{Geographic to UTM using GDAL}
+\subsection*{Geographic to UTM using GDAL}
+
+In this example, we will use GDAL to project Geographic coordinates to Universal Transverse
+Mercator (UTM).  
+
+Referring back to the UTM overview, in order to convert a Geographic coordinate
+to UTM, we need to first compute the desired grid zone.  To accomplish this, we use
+the following utility function. 
+
+\lstinputlisting[language=C++,firstline=95,lastline=125]{../../code/common/Coordinate_Utilities.cpp}
+
+
 
 

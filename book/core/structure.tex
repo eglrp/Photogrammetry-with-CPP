@@ -11,5 +11,27 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{listings}
+\usepackage{color}
 
+
+%----------------------------------------%
+%-      Define some temporary colors    -%
+%----------------------------------------%
+\definecolor{codegray}{rgb}{0.9,0.9,0.9}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+
+
+%---------------------------------------------------%
+%-      Setup the Color Scheme for Source Code     -%
+%---------------------------------------------------%
+\lstset{
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    backgroundcolor=\color{codegray},
+    commentstyle=\color{codegreen},
+    numbers=left,
+    keepspaces=true
+}
 
