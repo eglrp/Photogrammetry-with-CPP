@@ -13,6 +13,7 @@ add_executable( gdal-geographic-to-utm
                 gdal-geographic-to-utm.cpp )
 
 target_link_libraries( gdal-geographic-to-utm
+                       common-utilities
                        ${GDAL_LIBRARIES} )
 
 

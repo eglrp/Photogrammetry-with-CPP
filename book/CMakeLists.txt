@@ -19,6 +19,7 @@ set( BOOK_LATEX_FILES
         chapter2/gdal-overview.tex
         chapter2/geographiclib-overview.tex
         chapter3/overview.tex
+        chapter3/gdal-examples.tex
 )
 
 

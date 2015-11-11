@@ -12,6 +12,13 @@
 find_package( GDAL REQUIRED )
 include_directories(${GDAL_INCLUDE_DIRS})
 
+
+#-------------------------------#
+#-     Define Common Code      -#
+#-------------------------------#
+add_subdirectory(common)
+
+
 #------------------------------------#
 #-     Build Chapter 3 Examples     -#
 #------------------------------------#
