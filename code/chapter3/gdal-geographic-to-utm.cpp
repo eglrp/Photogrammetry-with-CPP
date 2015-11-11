@@ -5,7 +5,7 @@
 
 // C++ Libraries
 #include <iostream>
-#include <math>
+#include <cmath>
 
 
 /**
@@ -23,58 +23,83 @@ char Compute_UTM_Latitude_Band( const double& latitude_degrees )
     if((72 > latitude_degrees) && (latitude_degrees >= 64)){
         return 'W';
     }
-    else if((64 > latitude_degrees) && (latitude_degrees >= 56)) 
-    {
+    else if((64 > latitude_degrees) && (latitude_degrees >= 56)){
         return 'V';
     }
-    elseif((56 > Lat) && (Lat >= 48)) 
-                                                                LetterDesignator = "U";
-                                                                    elseif((48 > Lat) && (Lat >= 40))
-                                                                         LetterDesignator = "T";
-                                                                            elseif((40 > Lat) && (Lat >= 32))
-                                                                                 LetterDesignator = "S";
-                                                                                    elseif((32 > Lat) && (Lat >= 24))
-                                                                                         LetterDesignator = "R";
-                                                                                            elseif((24 > Lat) && (Lat >= 16))
-                                                                                                 LetterDesignator = "Q";
-                                                                                                    elseif((16 > Lat) && (Lat >= 8)) 
-                                                                                                        LetterDesignator = "P";
-                                                                                                            elseif(( 8 > Lat) && (Lat >= 0)) 
-                                                                                                                LetterDesignator = "N";
-                                                                                                                    elseif(( 0 > Lat) && (Lat >= -8)) 
-                                                                                                                        LetterDesignator = "M";
-                                                                                                                            elseif((-8> Lat) && (Lat >= -16)) 
-                                                                                                                                LetterDesignator = "L";
-                                                                                                                                    elseif((-16 > Lat) && (Lat >= -24))
-                                                                                                                                         LetterDesignator = "K";
-                                                                                                                                            elseif((-24 > Lat) && (Lat >= -32))
-                                                                                                                                                 LetterDesignator = "J";
-                                                                                                                                                    elseif((-32 > Lat) && (Lat >= -40)) 
-                                                                                                                                                        LetterDesignator = "H";
-                                                                                                                                                            elseif((-40 > Lat) && (Lat >= -48)) 
-                                                                                                                                                                LetterDesignator = "G";
-                                                                                                                                                                    elseif((-48 > Lat) && (Lat >= -56))
-                                                                                                                                                                         LetterDesignator = "F";
-                                                                                                                                                                            elseif((-56 > Lat) && (Lat >= -64)) 
-                                                                                                                                                                                LetterDesignator = "E";
-                                                                                                                                                                                    elseif((-64 > Lat) && (Lat >= -72))
-                                                                                                                                                                                         LetterDesignator = "D";
-                                                                                                                                                                                            elseif((-72 > Lat) && (Lat >= -80)) 
-                                                                                                                                                                                                LetterDesignator = "C";
-                                                                                                                                                                                                    else
-                                                                                                                                                                                                                 LetterDesignator = "Z"; //This is here as an error flag to show that the Latitude is outside the UTM limits
-                                                                                                                                                                                                                    endif
-                                                                                                                                                                                                                        return LetterDesignator;
+    else if((56 > latitude_degrees) && (latitude_degrees >= 48)){
+        return 'U';
+    }
+    else if((48 > latitude_degrees) && (latitude_degrees >= 40)){
+        return 'T';
+    }
+    else if((40 > latitude_degrees) && (latitude_degrees >= 32)){
+        return 'S';
+    }
+    else if((32 > latitude_degrees) && (latitude_degrees >= 24)){
+        return 'R';
+    }
+    else if((24 > latitude_degrees) && (latitude_degrees >= 16)){
+        return 'Q';
+    }
+    else if((16 > latitude_degrees) && (latitude_degrees >= 8)){ 
+        return 'P';
+    }
+    else if(( 8 > latitude_degrees) && (latitude_degrees >= 0)){
+        return 'N';
+    }
+    else if(( 0 > latitude_degrees) && (latitude_degrees >= -8)){ 
+        return 'M';
+    }
+    else if((-8> latitude_degrees) && (latitude_degrees >= -16)){
+        return 'L';
+    }
+    else if((-16 > latitude_degrees) && (latitude_degrees >= -24)){
+        return 'K';
+    }
+    else if((-24 > latitude_degrees) && (latitude_degrees >= -32)){
+        return 'J';
+    }
+    else if((-32 > latitude_degrees) && (latitude_degrees >= -40)){
+        return 'H';
+    }
+    else if((-40 > latitude_degrees) && (latitude_degrees >= -48)){
+        return 'G';
+    }
+    else if((-48 > latitude_degrees) && (latitude_degrees >= -56)){
+        return 'F';
+    }
+    else if((-56 > latitude_degrees) && (latitude_degrees >= -64)){
+        return 'E';
+    }
+    else if((-64 > latitude_degrees) && (latitude_degrees >= -72)){
+        return 'D';
+    }
+    else if((-72 > latitude_degrees) && (latitude_degrees >= -80)){
+        return 'C';
+    }
+    
+    // This should be considered an error condition.
+    return 'Z';
 }
+
+
+/**
+ * @brief Compute the UTM Grid Zone given Latitude and Longitude.
+ *
+ * @param[in] latitude_degrees Latitude in degrees [-90,90]
+ * @param[in] longitude_degrees Longitude in degrees [-180,180]
+ *
+ * @return Grid zone value.
+*/
 int Compute_UTM_Grid_Zone( const double& latitude_degrees,
                            const double& longitude_degrees )
 {
     // Create zone using standard algorithm
     int grid_zone = std::floor((longitude_degrees + 180)/6) + 1;
- 
+
     // Check if we are around an exception near Norway
     if( latitude_degrees  >= 56.0 && latitude_degrees  < 64.0 && 
-        longitude_degrees >= 3.0  && longitude_degrees < 12.0 )
+            longitude_degrees >= 3.0  && longitude_degrees < 12.0 )
     {
         return 32;
     }
@@ -101,7 +126,7 @@ int Compute_UTM_Grid_Zone( const double& latitude_degrees,
 
 /**
  * @brief Main Function
-*/
+ */
 int main( int argc, char* argv[] )
 {
 
@@ -111,7 +136,15 @@ int main( int argc, char* argv[] )
 
 
     // Compute the Recommended UTM Grid Zone
-    int grid_zone = Compute_UTM_Grid_Zone(longitude_degrees);
+    int grid_zone = Compute_UTM_Grid_Zone( latitude_degrees,
+                                           longitude_degrees);
+
+    // Latitude Band
+    char lat_band = Compute_UTM_Latitude_Band( latitude_degrees );
+
+    // Print Results
+    std::cout << "Geographic: " << latitude_degrees << ", " << longitude_degrees << std::endl;
+    std::cout << "UTM       : " << grid_zone << " " << lat_band << std::endl;
 
     return 0;
 }

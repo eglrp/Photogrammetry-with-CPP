@@ -28,4 +28,5 @@ project( Photogrammetry-with-C++ )
 #-    Build Subdirectories   -#
 #-----------------------------#
 add_subdirectory(book)
+add_subdirectory(code)
 
