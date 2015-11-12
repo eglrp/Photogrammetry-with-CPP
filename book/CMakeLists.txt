@@ -6,6 +6,12 @@
 #
 
 
+#---------------------------------#
+#-     Change the Output Path    -#
+#---------------------------------#
+SET( EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR} )
+SET( LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR} )
+
 #----------------------------------#
 #-     Define the Latex Files     -#
 #----------------------------------#

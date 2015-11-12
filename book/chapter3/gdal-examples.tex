@@ -19,6 +19,8 @@ the following utility function.
 
 \lstinputlisting[language=C++,firstline=95,lastline=125]{../../code/common/Coordinate_Utilities.cpp}
 
-
+This is needed because GDAL/OGR requires you set the UTM Grid zone before converting to UTM.  
+The reason for this is that you may need to cover a region which needs to span more than 1 UTM grid zone.
+Each UTM zone has a different origin.
 
 
