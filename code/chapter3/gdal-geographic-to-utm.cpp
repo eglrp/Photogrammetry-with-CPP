@@ -46,8 +46,10 @@ int main( int argc, char* argv[] )
                       is_northern );
 
     // Build the Transform Engine
-    OGRCoordinateTransformation* transform = OGRCreateCoordinateTransformation( &sourceSRS,
-                                                                                &targetSRS );
+    OGRCoordinateTransformation* transform;
+    transform = OGRCreateCoordinateTransformation( &sourceSRS,
+                                                   &targetSRS );
+    
     double easting_meters          = longitude_degrees;
     double northing_meters         = latitude_degrees;
     double output_elevation_meters = elevation_meters;
@@ -65,7 +67,6 @@ int main( int argc, char* argv[] )
 
     // Print Results
     std::cout << std::fixed;
-    std::cout << "Geographic: " << latitude_degrees << ", " << longitude_degrees << ", " << elevation_meters << std::endl;
     std::cout << "UTM Grid Zone   : " << grid_zone << std::endl;
     std::cout << "Latitude Band   : " << lat_band << std::endl;
     std::cout << "Easting Meters  : " << easting_meters << std::endl;
