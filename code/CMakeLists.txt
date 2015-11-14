@@ -13,6 +13,12 @@ find_package( GDAL REQUIRED )
 include_directories(${GDAL_INCLUDE_DIRS})
 
 
+#--------------------------------------------#
+#-     Look for GeographicLib Libraries     -#
+#--------------------------------------------#
+find_package( GeographicLib REQUIRED )
+
+
 #-------------------------------#
 #-     Define Common Code      -#
 #-------------------------------#
