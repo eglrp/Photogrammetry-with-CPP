@@ -30,3 +30,9 @@ add_subdirectory(common)
 #------------------------------------#
 add_subdirectory(chapter3)
 
+#------------------------------------#
+#-     Build Chapter 6 Examples     -#
+#------------------------------------#
+add_subdirectory(chapter6)
+
+

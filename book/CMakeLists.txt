@@ -26,9 +26,11 @@ set( BOOK_LATEX_FILES
         chapter2/geographiclib-overview.tex
         chapter3/overview.tex
         chapter3/gdal-examples.tex
-        chapter3/geographiclib-geoid.tex
         chapter3/liblas-examples.tex
         chapter4/overview.tex
+        chapter5/overview.tex
+        chapter6/overview.tex
+        chapter6/geographiclib-geoid.tex
         appendix-A/overview.tex
         appendix-A/Coordinate-Lookup-Table.tex
         ../code/common/Coordinate_Utilities.cpp
