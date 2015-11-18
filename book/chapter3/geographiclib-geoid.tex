@@ -5,3 +5,22 @@
 %    Purpose:  Describe how to use GeographicLib for coordinate conversion and Geoid manipulation.
 %
 
+
+%-------------------------------------------------------------%
+%-       Geographic Magnetic Lookup with GeographicLib       -%
+%-------------------------------------------------------------%
+\addcontentsline{toc}{subsection}{Querying Geo-Magnetic Information with GeographicLib}
+\subsection*{Querying Geo-Magnetic Information with GeographicLib }
+
+Prior to GPS, heading information was attained by using a magnetic compass.  Compasses still have a useful purpose and 
+as such, knowing about the Earth's magnetic field is equally useful.  GeographicLib has an impressive amount of 
+built-in, yet extensible support for magnetic information.  The \texttt{MagneticModel} class in the library provides
+this functionality. 
+
+In the demo below, we will be using GeographicLib to take a Geographic Coordinate in decimal degrees
+and compute the magnetic information for that position.  Of particular importance to many users will
+be the ability to extract the \emph{declination} or angle from North to the Earth's magnetic North Pole.
+
+
+\lstinputlisting[language=C++]{../../code/chapter3/geographiclib-magnetic-query.cpp}
+

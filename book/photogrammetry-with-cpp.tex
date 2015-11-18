@@ -10,6 +10,9 @@
 \input{core/front_matter}
 
 
+%   Start the Main Chapters
+\mainmatter
+
 %  Build Chapter 1
 \input{chapter1/overview}
 
@@ -18,6 +21,31 @@
 
 %  Build Chapter 3
 \input{chapter3/overview}
+
+%  Build Chapter 4
+\input{chapter4/overview}
+
+%  Build Chapter 5
+%\input{chapter5/overview}
+
+%  Build Chapter 6
+%\input{chapter6/overview}
+
+%   Start the Appendices
+\appendix
+
+
+%-  Build Appendix A
+\input{appendix-A/overview.tex}
+
+
+%-   Setup the Bibliography
+\bibliographystyle{plain}
+\bibliography{core/bibliography}
+
+
+%-   Print the Index
+\printindex
 
 
 \end{document}

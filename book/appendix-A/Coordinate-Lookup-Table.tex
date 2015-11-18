@@ -1,0 +1,37 @@
+%    File:      Coordinate-Lookup-Table.tex
+%    Author:    Marvin Smith
+%    Date:      11/14/2015
+%
+%    Purpose:  Provide common coordinates in different formats for comparison and testing.
+%
+
+
+%--------------------------------------------------%
+%-      We want this section on its own page      -%  
+%--------------------------------------------------%
+\clearpage
+
+%--------------------------------------------------%
+%-              Start of the Section              -%
+%--------------------------------------------------%
+\addcontentsline{toc}{section}{Coordinate Lookup Table}
+\section*{Coordinate Lookup Table}
+
+All information for this lookup table was attained using the Wikipedia and their GeoHack utility \cite{GeoHack}.
+
+%-  Start the Table
+\begin{table}[h!]
+
+%-  Orient the Table Sideways
+\begin{sideways}
+\begin{tabular}{|l|l|l|}\hline
+\textbf{Location Name} & \textbf{Geographic-DD} & \textbf{UTM} \\\hline
+\csvreader[head to column names]{../data/Coordinate-Lookup-Table.csv}{}
+{\LocationName & \GeogDD & \UTM}
+\\\hline
+
+\end{tabular}
+\end{sideways}
+\end{table}
+
+

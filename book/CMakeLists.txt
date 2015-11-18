@@ -26,7 +26,22 @@ set( BOOK_LATEX_FILES
         chapter2/geographiclib-overview.tex
         chapter3/overview.tex
         chapter3/gdal-examples.tex
+        chapter3/geographiclib-geoid.tex
+        chapter3/liblas-examples.tex
+        chapter4/overview.tex
+        appendix-A/overview.tex
+        appendix-A/Coordinate-Lookup-Table.tex
         ../code/common/Coordinate_Utilities.cpp
+        ../data/Coordinate-Lookup-Table.csv
+)
+
+
+
+#----------------------------------------------#
+#-        Define the Bibliography Files       -#
+#----------------------------------------------#
+set( BOOK_BIB_FILES
+     core/bibliography.bib
 )
 
 
@@ -55,6 +70,10 @@ add_latex_document( photogrammetry-with-cpp.tex
                             photogrammetry-with-cpp
                         IMAGES
                             ${BOOK_IMAGE_FILES}
+                        BIBFILES
+                            ${BOOK_BIB_FILES}
+                        USE_INDEX
+                        USE_GLOSSARY
 )
 
 

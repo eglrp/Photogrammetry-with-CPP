@@ -7,8 +7,8 @@
 
 
 %  Start of Chapter
-\addcontentsline{toc}{chapter}{Coordinate Conversions}
-\chapter*{Coordinate Conversions}
+\addcontentsline{toc}{chapter}{Managing Coordinates and Projections}
+\chapter*{Managing Coordinates and Projections}
 
 
 %----------------------------------------%
@@ -18,11 +18,22 @@
 \section*{Overview}
 
 Converting coordinates is an essential component in GIS.  Whether you are converting one single
-coordinate, or reprojecting an entire dataset, having a useful toolset can be extremely helpful. 
+coordinate, or reprojecting an entire dataset, having a useful toolset can be extremely helpful.
+In addition, you may need additional information such as magnetic north, or even the
+relative position of the tides to sea-level in a particular location.  This chapter will provide
+you with the essential information to be able to more accurately describe the world around
+you.
 
 
 %------------------------------------------%
 %-        GDAL Coordinate Examples        -%
 %------------------------------------------%
 \input{chapter3/gdal-examples.tex}
+
+
+%-----------------------------------------%
+%-         GeographicLib Examples        -%
+%-----------------------------------------%
+\input{chapter3/geographiclib-geoid.tex}
+
 
