@@ -6,6 +6,10 @@
 #ifndef __COORDINATE_UTILITIES_HPP__
 #define __COORDINATE_UTILITIES_HPP__
 
+// C++ Libraries
+#include <string>
+
+
 /**
  * @brief Compute the UTM Latitude Band.
  *

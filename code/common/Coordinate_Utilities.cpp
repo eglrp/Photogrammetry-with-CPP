@@ -6,7 +6,9 @@
 #include "Coordinate_Utilities.hpp"
 
 // C++ Libraries
+#include <algorithm>
 #include <cmath>
+#include <iostream>
 
 
 /**
@@ -123,3 +125,4 @@ int Compute_UTM_Grid_Zone( const double& latitude_degrees,
     }
     return grid_zone;
 }
+
