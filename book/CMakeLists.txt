@@ -25,7 +25,8 @@ set( BOOK_LATEX_FILES
         chapter2/gdal-overview.tex
         chapter2/geographiclib-overview.tex
         chapter3/overview.tex
-        chapter3/gdal-examples.tex
+        chapter3/coordinate-conversions.tex
+        chapter3/distance-measurements.tex
         chapter3/liblas-examples.tex
         chapter4/overview.tex
         chapter5/overview.tex
@@ -33,6 +34,7 @@ set( BOOK_LATEX_FILES
         chapter6/geographiclib-geoid.tex
         appendix-A/overview.tex
         appendix-A/Coordinate-Lookup-Table.tex
+        ../code/chapter3/mgrs_to_utm.cpp
         ../code/common/Coordinate_Utilities.cpp
         ../data/Coordinate-Lookup-Table.csv
 )

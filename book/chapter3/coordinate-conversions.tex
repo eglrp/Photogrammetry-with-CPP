@@ -1,7 +1,15 @@
-%    File:    gdal-examples.tex
+%    File:    coordinate-conversions.tex
 %    Author:  Marvin Smith
-%    Date:    11/10/2015
+%    Date:    11/20/2015
 %
+
+
+
+%--------------------------------------------------%
+%-       Start of Coordinate Conversions          -%
+%--------------------------------------------------%
+\addcontentsline{toc}{section}{Coordinate Conversions}
+\section*{Coordinate Conversions}
 
 
 %-------------------------------------%
@@ -27,5 +35,22 @@ Once the grid zone is determined given the latitude and longitude, the rest is s
 assumes a WGS84 datum. 
 
 \lstinputlisting[language=C++]{../../code/chapter3/gdal-geographic-to-utm.cpp}
+
+
+%----------------------------------%
+%-      Simple MGRS Example       -%
+%----------------------------------%
+\addcontentsline{toc}{subsection}{Converting between UTM and MGRS using GeographicLib}
+\subsection*{Converting between UTM and MGRS using GeographicLib}
+
+In this example, we will convert between Universal Transverse Mercator (UTM) and the Military Grid Reference System (MGRS)
+using GeographicLib. 
+
+The key item in the GeographicLib package is the `MGRS` class.  This class has a Forward and Reverse 
+transformation method, plus some getters in order to query ellpsoid parameters. 
+
+
+
+\lstinputlisting[language=C++,firstline=20,lastline=66]{../../code/chapter3/mgrs_to_utm.cpp}
 
 
