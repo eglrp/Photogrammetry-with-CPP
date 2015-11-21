@@ -17,17 +17,18 @@
 \addcontentsline{toc}{section}{Coordinate Lookup Table}
 \section*{Coordinate Lookup Table}
 
-All information for this lookup table was attained using the Wikipedia and their GeoHack utility \cite{GeoHack}.
+All location positions in Geographic (lat/lon) were attained using the Wikipedia and their GeoHack utility \cite{GeoHack}.
+All conversions to other coordinate systems was performed by GEOTRANS\cite{GEOTRANS}.
 
 %-  Start the Table
 \begin{table}[h!]
 
 %-  Orient the Table Sideways
 \begin{sideways}
-\begin{tabular}{|l|l|l|}\hline
-\textbf{Location Name} & \textbf{Geographic-DD} & \textbf{UTM} \\\hline
+\begin{tabular}{|l|l|l|l|l|l|}\hline
+\textbf{Location Name} & \textbf{Geographic-DD} & \textbf{Geographic-DMS} & \textbf{UTM} & \textbf{USNG} & \textbf{MGRS} \\\hline
 \csvreader[head to column names]{../data/Coordinate-Lookup-Table.csv}{}
-{\LocationName & \GeogDD & \UTM}
+{\LocationName & \GeogDD &\GeogDMS & \UTM & \USNG & \MGRS}
 \\\hline
 
 \end{tabular}
