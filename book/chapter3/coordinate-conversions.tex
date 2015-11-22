@@ -25,7 +25,7 @@ Referring back to the UTM overview, in order to convert a Geographic coordinate
 to UTM, we need to first compute the desired grid zone.  To accomplish this, we use
 the following utility function. 
 
-\lstinputlisting[language=C++,firstline=95,lastline=125]{../../code/common/Coordinate_Utilities.cpp}
+\lstinputlisting[language=C++,firstline=95,lastline=125]{../code/common/Coordinate_Utilities.cpp}
 
 This is needed because GDAL/OGR requires you set the UTM Grid zone before converting to UTM.  
 The reason for this is that you may need to cover a region which needs to span more than 1 UTM grid zone.
@@ -34,7 +34,7 @@ Each UTM zone has a different origin.
 Once the grid zone is determined given the latitude and longitude, the rest is straightforward.  This example
 assumes a WGS84 datum. 
 
-\lstinputlisting[language=C++]{../../code/chapter3/gdal-geographic-to-utm.cpp}
+\lstinputlisting[language=C++]{../code/chapter3/gdal-geographic-to-utm.cpp}
 
 
 %----------------------------------%
@@ -51,6 +51,6 @@ transformation method, plus some getters in order to query ellpsoid parameters.
 
 
 
-\lstinputlisting[language=C++,firstline=20,lastline=66]{../../code/chapter3/mgrs_to_utm.cpp}
+\lstinputlisting[language=C++,firstline=20,lastline=66]{../code/chapter3/mgrs_to_utm.cpp}
 
 
