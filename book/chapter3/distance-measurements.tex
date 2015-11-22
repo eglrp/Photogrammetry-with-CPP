@@ -54,11 +54,13 @@ d_{gc} = 2r \arcsin \left( \sqrt{ \sin^2 \frac{\phi_2 - \phi_1}{2} + \cos{\phi_1
 \end{equation}
 
 Here is a C++ example of the Haversine equation. This example was derived partially from \cite[p. 109]{Meyer_Book}.
-\lstinputlisting[language=C++]{../code/chapter3/great-circle-distance.cpp}
+\inputminted{C++}{../code/chapter3/great-circle-distance.cpp}
 
 \addcontentsline{toc}{subsubsection}{Geodesic Ellipsoid Distances}
 \subsubsection*{Geodesic Ellipsoid Distances}
 
-Given an Ellipsoid, computation of the 
 
+GeographicLib once again is a useful utility for Geodesic distances.  
+
+\inputminted{C++}{../code/chapter3/geographiclib-ellipsoid-distance.cpp}
 

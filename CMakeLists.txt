@@ -11,12 +11,25 @@
 cmake_minimum_required( VERSION 2.8 FATAL_ERROR )
 
 
+#---------------------------#
+#-     Provide Options     -#
+#---------------------------#
+
+
 #---------------------------------------#
 #-    Add Additional CMake Modules     -#
 #---------------------------------------#
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
-include(cmake/Modules/UseLATEX.cmake)
 
+
+#---------------------------------------#
+#-     Configure the Latex Module      -#
+#---------------------------------------#
+set( LATEX_COMPILER_FLAGS ${LATEX_COMPILER_FLAGS} -shell-escape )
+set( PDFLATEX_COMPILER_FLAGS ${PDFLATEX_COMPILER_FLAGS} -shell-escape )
+include(cmake/Modules/UseLATEX.cmake)
+message("LATEX Compiler Flags: ${LATEX_COMPILER_FLAGS}")
+message("PDFLATEX Compiler Flags: ${PDFLATEX_COMPILER_FLAGS}")
 
 #------------------------------#
 #-    Set the Project Name    -#

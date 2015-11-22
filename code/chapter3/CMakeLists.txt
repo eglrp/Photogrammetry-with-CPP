@@ -33,3 +33,22 @@ target_link_libraries( mgrs-to-utm
                        ${GeographicLib_LIBRARIES})
 
 
+#-----------------------------------#
+#-      Great Circle Distance      -#
+#-----------------------------------#
+add_executable( great-circle-distance
+                great-circle-distance.cpp )
+
+
+#------------------------------------------------#
+#-       GeographicLib Ellipsoid Distance       -#
+#------------------------------------------------#
+add_executable( geographiclib-ellipsoid-distance
+                geographiclib-ellipsoid-distance.cpp )
+
+
+target_link_libraries( geographiclib-ellipsoid-distance
+                       common-utilities
+                       ${GeographicLib_LIBRARIES})
+
+

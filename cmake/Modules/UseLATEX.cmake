@@ -50,6 +50,7 @@
 #                    [USE_INDEX]
 #                    [INDEX_NAMES <index_names>]
 #                    [USE_GLOSSARY] [USE_NOMENCL]
+#                    [USE_MINTED]
 #                    [FORCE_PDF] [FORCE_DVI] [FORCE_HTML]
 #                    [TARGET_NAME] <name>
 #                    [EXCLUDE_FROM_ALL]

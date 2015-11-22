@@ -18,7 +18,6 @@ SET( LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR} )
 #---------------------------------------#
 #set( LATEX_OUTPUT_PATH ${PROJECT_SOURCE_DIR} )
 
-
 #----------------------------------#
 #-     Define the Latex Files     -#
 #----------------------------------#
@@ -42,6 +41,7 @@ set( BOOK_LATEX_FILES
         appendix-A/overview.tex
         appendix-A/Coordinate-Lookup-Table.tex
         ../code/chapter3/gdal-geographic-to-utm.cpp
+        ../code/chapter3/geographiclib-ellipsoid-distance.cpp
         ../code/chapter3/great-circle-distance.cpp
         ../code/chapter3/mgrs_to_utm.cpp
         ../code/chapter6/geographiclib-magnetic-query.cpp

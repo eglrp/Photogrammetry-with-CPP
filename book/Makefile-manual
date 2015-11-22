@@ -1,0 +1,15 @@
+
+
+FILES=photogrammetry-with-cpp.tex
+
+PDFLATEX_ARGS="-shell-escape"
+
+
+photogrammetry-with-cpp.pdf: $(FILES)
+	pdflatex $(PDFLATEX_ARGS) photogrammetry-with-cpp.tex
+	pdflatex $(PDFLATEX_ARGS) photogrammetry-with-cpp.tex
+	makeindex	
+	makeglossaries
+	pdflatex $(PDFLATEX_ARGS) photogrammetry-with-cpp.tex
+	pdflatex $(PDFLATEX_ARGS) photogrammetry-with-cpp.tex
+
