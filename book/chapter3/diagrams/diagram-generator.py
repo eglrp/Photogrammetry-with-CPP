@@ -6,32 +6,52 @@ from mpl_toolkits.mplot3d import Axes3D, proj3d
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
+from itertools import product, combinations
+import pylab, math
 
 
-#-     Create New Figure     
-fig = plt.figure()
+
+#--------------------------#
+#-   Simple Arrow Class   -#
+#--------------------------#
+class Arrow3D(mpl.patches.FancyArrowPatch):
+    
+    def __init__(self, xs, ys, zs, *args, **kwargs):
+        mpl.patches.FancyArrowPatch.__init__(self, (0,0), (0,0), *args, **kwargs)
+        self._verts3d = xs, ys, zs
+        
+    def draw(self, renderer):
+        xs3d, ys3d, zs3d = self._verts3d
+        xs, ys, zs = proj3d.proj_transform(xs3d, ys3d, zs3d, renderer.M)
+        self.set_positions((xs[0],ys[0]),(xs[1],ys[1]))
+        mpl.patches.FancyArrowPatch.draw(self, renderer)
 
 
-#-     Construct the Basemap
-#mp = Basemap( width=1500000,height=1125000,
-#              resolution='l',area_thresh=100.,projection='lcc',
-#              lat_1=32,lat_2=44,lat_0=38,lon_0=-120)
-mp = Basemap( projection='ortho',lon_0=-120,lat_0=39,resolution='l' )
-
-# draw the edge of the mp projection region (the projection limb)
-mp.drawcoastlines(linewidth=0.25)
-mp.drawcountries(linewidth=0.25)
 
 
-# draw lat/lon grid lines every 30 degrees.
-#mp.drawmeridians(np.arange(0,360,1),  labels=[True, False, False, True])
-#mp.drawparallels(np.arange(-90,90,1), labels=[False, True, True, False])
+#   Plot
+fig = plt.figure(figsize=(14,14))
+ax = fig.gca(projection='3d')
 
-#mp.drawstates(linewidth=1)
-#mp.drawcountries(linewidth=2)
+#  Draw Axes
+ax.plot([ 0,1],[ 0,0],[ 0,0],'b')
+ax.plot([-1,0],[ 0,0],[ 0,0],'b--')
+ax.plot([ 0,0],[-1,0],[ 0,0],'b--')
+ax.plot([ 0,0],[ 0,1],[ 0,0],'b')
+ax.plot([ 0,0],[ 0,0],[-1,0],'b--')
+ax.plot([ 0,0],[ 0,0],[ 0,1],'b')
 
-mp.shadedrelief()
+
+#  Draw Sphere
+u = np.linspace( 0, 2 * np.pi, 500 )
+v = np.linspace( 0, np.pi, 500 )
+
+x = np.outer(np.cos(u), np.sin(v))
+y = np.outer(np.sin(u), np.sin(v))
+z = np.outer(np.ones(np.size(u)), np.cos(v))
+
+ax.plot_surface( x, y, z )
+
 
 
 plt.show()
-

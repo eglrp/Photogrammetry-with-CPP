@@ -28,8 +28,21 @@ d = \sqrt{ \sum^{N}_{i=1} (P_{2_i} - P_{1_i} )^2}
 
 
 The issue with Cartesian coordinates is that they are only appropriate for certain
-conditions.  The conditions will be broken down in the following samples.  First however, 
-we will show various examples of more standard techniques.
+conditions.  Geographic (lat/lon) uses a spherical coordinate system which represents positions
+in angles from the origin, not distance from the origin.  In figure \ref{fig:ortho_vs_merc}, 
+the differences in routes between the two same points can be observed between
+an orthographic and mercator projection.
+
+\begin{figure}[!h]
+\begin{subfigure}[b]{3in}
+\includegraphics[width=3in]{chapter3/diagrams/figure_1.png}
+\end{subfigure}
+\begin{subfigure}[b]{3in}
+\includegraphics[width=3in]{chapter3/diagrams/figure_2.png}
+\end{subfigure}
+\caption{Orthographic vs. Mercator Projection for line between (39,-120) to (39,-77)}
+\label{fig:ortho_vs_merc}
+\end{figure}
 
 
 \addcontentsline{toc}{subsection}{Coordinate Distances for Geographic Coordinates}
@@ -63,4 +76,11 @@ Here is a C++ example of the Haversine equation. This example was derived partia
 GeographicLib once again is a useful utility for Geodesic distances.  
 
 \inputminted{C++}{../code/chapter3/geographiclib-ellipsoid-distance.cpp}
+
+
+
+
+\addcontentsline{toc}{subsubsection}{Projected Coordinate Distances}
+\subsubsection*{Projected Coordinate Distances}
+
 
