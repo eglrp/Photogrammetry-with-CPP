@@ -85,7 +85,25 @@ The Universal Transverse Mercator (UTM) is a projected coordinate system based o
 standard \emph{Transverse Mercator} projection.  There are 120 grid zones defined:
 60 for Northern and 60 for Southern Hemispheres. 
 
+\begin{figure}[h!]
+\centering
+\begin{subfigure}[c]{4.2in}
+\includegraphics[width=4.2in]{chapter1/diagrams/figure_1_3.png}
+\caption{Grid Zones 1-30 N and S}
+\end{subfigure}\\
+\begin{subfigure}[c]{4.2in}
+\includegraphics[width=4.2in]{chapter1/diagrams/figure_1_4.png}
+\caption{Grid Zones 31-60 N and S}
+\end{subfigure}
+\caption{UTM Grid Zones. Zones provided by \cite{NGA_SIG_UTM_UPS}, Maps by OSM.}
+\end{figure}
 
+Each grid zone has its own parameters defined for the \emph{Centrial Meridian}.
+As a consequence, coordinates must be reprojected if moving from one zone to another.
+
+Besides the grid zone, the other components are \emph{easting} and \emph{northing}.
+Easting is the $x$ distance from the grid origin and the northing is the $y$-axis
+distance from the grid origin.  
 
 
 %----------------------------------------------%

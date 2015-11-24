@@ -65,6 +65,8 @@ set( BOOK_BIB_FILES
 set( BOOK_IMAGE_FILES
      chapter1/diagrams/figure_1_1.png
      chapter1/diagrams/figure_1_2.png
+     chapter1/diagrams/figure_1_3.png
+     chapter1/diagrams/figure_1_4.png
      chapter3/diagrams/figure_1.png
      chapter3/diagrams/figure_2.png
 )
