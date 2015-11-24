@@ -32,8 +32,18 @@ Project Website & \url{http://gdal.org} \\\hline
 
 
 \addcontentsline{toc}{subsubsection}{Windows}
-\subsubsection*{Window}
+\subsubsection*{Windows}
 
+Window bindings can be downloaded for various MSVC versions here
+at \url{http://www.gisinternals.com/}.  This is a great resource
+if you need development libraries for a recent or non-standard
+VC++ version. 
+
+Another resource for Windows versions of GDAL is
+the OSGeo4W distribution.  This is a tool similar
+to Cygwin which provides the latest versions of GDAL packaged
+with other useful tools such as QGis, GRASS, MapServer and OpenEV. 
+Information can be found on their site at \url{https://trac.osgeo.org/osgeo4w/}.
 
 
 %----------------------%
@@ -47,6 +57,51 @@ There are other packages available, however MacPorts is unique in that it provid
 installation through the \texttt{variant} flag and it can be updated through
 the package manager.
 
+\begin{verbatim}
+sudo port install gdal
+\end{verbatim}
+
+Current MacPorts version is 2.0.1 and contains many different port variants.  Recommend
+using at least the \emph{openjpeg, geos, lzma, netcdf, and poppler} variants.
+
+
+%--------------------%
+%-      Linux       -%
+%--------------------%
+\addcontentsline{toc}{subsubsection}{Linux}
+\subsubsection*{Linux}
+
+GDAL can easily be installed through multiple distributions.  
+
+\noindent\textbf{Ubuntu}
+
+\begin{verbatim}
+ apt-get install gdal-bin libgdal-dev 
+\end{verbatim}
+
+\noindent\textbf{Fedora/RHEL/Centos}
+
+\begin{verbatim}
+yum install gdal-devel gdal-python
+\end{verbatim}
+
+\noindent\textbf{Red-Hat Linux 6}
+
+Due to the stable nature of RHEL distributions, it is recommended to 
+use the ELGIS repo provided by OSGeo.  Their Yum repositories can be
+configured via the following commands. 
+
+\begin{verbatim}
+sudo rpm -Uvh http://elgis.argeo.org/repos/6/elgis-release-6-6_0.noarch.rpm
+\end{verbatim}
+
+Caveats
+\begin{itemize}
+\item[] In order to use ELGIS, you must enable the EPEL repository.  Their repos can be configured at \url{http://fedoraproject.org/wiki/EPEL}. 
+\item[] Do not enable both ELGIS and PGRPMS.  They are not compatible and if both enabled, will cause conflicts.
+\end{itemize}
+
+More information can be found on their site at \url{http://wiki.osgeo.org/wiki/Enterprise_Linux_GIS}.
 
 %--------------------------------%
 %-     Building from Source     -%
