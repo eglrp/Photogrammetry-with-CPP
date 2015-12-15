@@ -1,0 +1,52 @@
+
+DIRS=bin \
+	 build
+
+BIN=bin/fbx-render-terrain
+
+OBJECTS=build/fbx-render-terrain.o \
+		build/Raster_Utilities.o \
+		build/Model_Utilities.o \
+		build/FBX_Utilities.o
+
+HEADERS=../common/Raster_Utilities.hpp \
+		../common/Model_Utilities.hpp \
+		../common/FBX_Utilities.hpp
+
+FBX_HOME=/Applications/Autodesk/FBX\ SDK/2016.1.2
+
+INCL=-I/opt/local/include -I$(FBX_HOME)/include -I/usr/local/include
+
+LIBS=-L$(FBX_HOME)/lib/clang/release -lfbxsdk -L/opt/local/lib -lgdal -L/usr/local/lib -lopencv_core -lopencv_imgproc
+
+FLAGS=-Wall -DFBXSDK_SHARED -std=c++11
+
+all: $(DIRS) $(BIN)
+
+CXX=g++
+
+bin:
+	mkdir bin
+
+build:
+	mkdir build
+
+build/fbx-render-terrain.o: fbx-render-terrain.cpp $(HEADERS)
+	$(CXX) -o $@ -c $< $(FLAGS) $(INCL)
+
+build/Raster_Utilities.o: ../common/Raster_Utilities.cpp $(HEADERS)
+	$(CXX) -o $@ -c $< $(FLAGS) $(INCL)
+
+build/Model_Utilities.o: ../common/Model_Utilities.cpp $(HEADERS)
+	$(CXX) -o $@ -c $< $(FLAGS) $(INCL)
+
+build/FBX_Utilities.o: ../common/FBX_Utilities.cpp $(HEADERS)
+	$(CXX) -o $@ -c $< $(FLAGS) $(INCL)
+
+bin/fbx-render-terrain: $(HEADERS) $(OBJECTS) $(DIRS)
+	$(CXX) -o $@ $(OBJECTS) $(INCL) $(FLAGS) $(LIBS)
+
+clean:
+	rm build/*
+	rm bin/*
+	
