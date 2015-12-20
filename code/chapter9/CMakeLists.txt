@@ -14,5 +14,6 @@ target_link_libraries( osg-render-terrain
                        common-utilities
                        ${OPENSCENEGRAPH_LIBRARIES}
                        ${OpenCV_LIBS}
+                       ${GDAL_LIBRARIES}
 )
 

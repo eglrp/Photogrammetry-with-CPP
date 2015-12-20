@@ -5,7 +5,7 @@
 */
 
 // OpenCV Libraries
-#include <opencv2/core.hpp>
+#include <opencv2/core/core.hpp>
 
 
 // C++ Libraries
@@ -34,14 +34,17 @@ void Write_OSG_Mesh( const std::string& output_pathname,
     osg::ref_ptr<osg::Group> root_node(new osg::Group());
     
     // Add the DEM Node
+    std::cout << "Building DEM Node" << std::endl;
     root_node->addChild( Build_DEM_Mesh( dem, 
                                          geo_transform ));
 
     
     // Write the Node File
+    std::cout << "Writing Node File To: " << output_pathname << std::endl;
     osgDB::writeNodeFile( *root_node.get(),
                            output_pathname,
                            write_options );
+    std::cout << "Write the OSG Mesh" << std::endl;
 }
 
 /**
@@ -49,23 +52,31 @@ void Write_OSG_Mesh( const std::string& output_pathname,
 */
 int main( int argc, char* argv[] )
 {
+    // Parse Command-Line Options
+    if( argc < 2 ){
+        std::cerr << "usage: " << argv[0] << " <dem-path> <output-path>" << std::endl;
+        return 1;
+    }
+    std::string dem_pathname = argv[1];
+    std::string output_pathname = argv[2];
+
+
     // Load the DEM
     cv::Mat dem;
-    double* geo_transform;
-    std::string dem_pathname = argv[1];
+    double* geo_transform = new double[6];
     Load_Raster_GDAL2CV( dem_pathname,
                          dem,
                          geo_transform );
-                         
 
 
-    // Set the Output Pathname
-    std::string output_pathname = argv[2];
 
     // Write OSG File
     Write_OSG_Mesh( output_pathname,
                     dem,
                     geo_transform );
+
+    // Clean Up
+    delete [] geo_transform;
 
     // Return
     return 0;

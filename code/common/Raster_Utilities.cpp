@@ -36,7 +36,8 @@ bool Load_Raster_GDAL2CV( const std::string& pathname,
 
 
     // otherwise, grab the transform
-    if( dataset->GetGeoTransform(geo_transform) != CE_None ){
+    if( dataset->GetGeoTransform(geo_transform) != CE_None )
+    {
         std::cerr << "Unable to get the Geo-Transform." << std::endl;
         return false;
     }
@@ -47,7 +48,7 @@ bool Load_Raster_GDAL2CV( const std::string& pathname,
     int cols     = dataset->GetRasterXSize();
 
     // Construct OpenCV Channels
-    std::vector<cv::Mat> image_list(channels, cv::Mat( rows, cols, CV_8UC1));
+    std::vector<cv::Mat> image_list(channels, cv::Mat( rows, cols, CV_16UC1));
 
     // Iterate over each band
     for( int channel=1; channel <= channels; channel++ )
@@ -55,14 +56,29 @@ bool Load_Raster_GDAL2CV( const std::string& pathname,
         // Fetch the band
         GDALRasterBand* band = dataset->GetRasterBand(channel);
 
+        // Check the band
+        if( band == NULL )
+        {
+            std::cerr << "Unable to load band " << channel << std::endl;
+            return false;
+        }
+            
+
         // Grab pixel data
         band->RasterIO( GF_Read, 0, 0, cols, rows,
                         image_list[channel-1].data,
-                        cols, rows, GDT_Byte, 0, 0);
+                        cols, rows, GDT_UInt16, 0, 0);
     }
 
     // Merge channels
-    cv::merge( image_list, image );
+    if( image_list.size() == 1 )
+    {
+        image = image_list.front();
+    }
+    else
+    {
+        cv::merge( image_list, image );
+    }
 
     // Return success
     return true;

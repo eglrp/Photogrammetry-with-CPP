@@ -22,7 +22,11 @@ include_directories(${GDAL_INCLUDE_DIRS})
 #-     Look for GeographicLib Libraries     -#
 #--------------------------------------------#
 find_package( GeographicLib REQUIRED )
-
+if( GeographicLib_FOUND )
+    message("GeographicLib found.")
+else()
+    message("GeographicLib not found.")
+endif()
 
 #---------------------------------------------#
 #-     Look for OpenSceneGraph Libraries     -#

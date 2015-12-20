@@ -6,6 +6,7 @@
 // C++ Libraries
 #include <iomanip>
 #include <iostream>
+#include <stdexcept>
 
 
 // Common Libraries

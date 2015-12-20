@@ -31,7 +31,7 @@ int main( int argc, char* argv[] )
         const double lon_2_deg = -119.917889;
 
         // GRS80 Compontents
-        const double a = GeoLib::Constants::GRS80_a();
+        const double a = GeoLib::Constants::GRS80_a<double>();
         const double f = 298.257222101;
 
         // Define our Datum
