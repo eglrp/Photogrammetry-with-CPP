@@ -16,64 +16,52 @@
 // Common Libraries
 #include "../common/OSG_Utilities.hpp"
 #include "../common/Raster_Utilities.hpp"
+#include "OSG_Render_Utilities.hpp"
 
 
-
-/**
- * @brief Write the OSG Mesh File
-*/
-void Write_OSG_Mesh( const std::string& output_pathname,
-                     const cv::Mat&     dem,
-                     const double*      geo_transform )
-{
-
-    // Define Write Options
-    osgDB::Options* write_options = new osgDB::Options("WriteImageHint=IncludeData Compressor=zlib");
-
-    // Create the Root Nodes
-    osg::ref_ptr<osg::Group> root_node(new osg::Group());
-    
-    // Add the DEM Node
-    std::cout << "Building DEM Node" << std::endl;
-    root_node->addChild( Build_DEM_Mesh( dem, 
-                                         geo_transform ));
-
-    
-    // Write the Node File
-    std::cout << "Writing Node File To: " << output_pathname << std::endl;
-    osgDB::writeNodeFile( *root_node.get(),
-                           output_pathname,
-                           write_options );
-    std::cout << "Write the OSG Mesh" << std::endl;
-}
+// OSG Libraries
+#include <osgViewer/Viewer>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgGA/TrackballManipulator>
+#include <osgGA/FlightManipulator>
+#include <osgGA/StateSetManipulator>
 
 /**
  * @brief Main Application
 */
 int main( int argc, char* argv[] )
 {
+    
     // Parse Command-Line Options
-    if( argc < 2 ){
-        std::cerr << "usage: " << argv[0] << " <dem-path> <output-path>" << std::endl;
-        return 1;
-    }
-    std::string dem_pathname = argv[1];
-    std::string output_pathname = argv[2];
+    Options options( argc, argv );
 
 
     // Load the DEM
     cv::Mat dem;
     double* geo_transform = new double[6];
-    Load_Raster_GDAL2CV( dem_pathname,
+    Load_Raster_GDAL2CV( options.Get_DEM_Pathname(),
                          dem,
                          geo_transform );
 
 
 
     // Write OSG File
-    Write_OSG_Mesh( output_pathname,
-                    dem,
-                    geo_transform );
+    osg::ref_ptr<osg::Group> osg_mesh =  Write_OSG_Mesh( options.Get_Output_Pathname(),
+                                                         dem,
+                                                         geo_transform );
+
+    
+    // Create viewer if desired
+    if( options.Check_Flag("viewer") == true )
+    {
+        std::cout << "Creating Viewer" << std::endl;
+        osg::ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer;
+        viewer->setSceneData(osg_mesh.get());
+        viewer->setCameraManipulator(new osgGA::TrackballManipulator);
+        viewer->addEventHandler(new osgViewer::StatsHandler);
+        viewer->run();
+
+    }
 
     // Clean Up
     delete [] geo_transform;

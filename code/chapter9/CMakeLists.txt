@@ -8,7 +8,9 @@
 #-     Construct the OSG Rendering App    -#
 #------------------------------------------#
 add_executable( osg-render-terrain
-                osg-render-terrain.cpp )
+                osg-render-terrain.cpp
+                OSG_Render_Utilities.hpp
+                OSG_Render_Utilities.cpp)
 
 target_link_libraries( osg-render-terrain
                        common-utilities

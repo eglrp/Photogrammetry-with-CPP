@@ -32,4 +32,31 @@ int Compute_UTM_Grid_Zone( const double& latitude_degrees,
                            const double& longitude_degrees );
 
 
+/** 
+ * @brief Convert Geographic to UTM
+ */
+void Convert_Geographic_To_UTM( const double&       latitude_degrees,
+                                const double&       longitude_degrees,
+                                const std::string&  input_datum,
+                                const int&          grid_zone,
+                                const bool&         is_northern,
+                                double&             easting_meters,
+                                double&             northing_meters,
+                                const std::string&  output_datum );
+
+
+/** 
+ * @brief Convert Geographic to UTM
+ */
+void Convert_Geographic_To_UTM( const int&          number_coordinates,
+                                const double*       latitude_degrees,
+                                const double*       longitude_degrees,
+                                const std::string&  input_datum,
+                                const int&          grid_zone,
+                                const bool&         is_northern,
+                                double*             eastings_meters,
+                                double*             northings_meters,
+                                const std::string&  output_datum );
+
+
 #endif

@@ -43,8 +43,14 @@
  * @param[in] output_pathname
  * @param[in] dem
  */
-osg::Node* Build_DEM_Mesh( const cv::Mat& dem,
-                           const double*  geo_transform );
+osg::ref_ptr<osg::Geode>  Build_DEM_Mesh( const cv::Mat& dem,
+                                          const double*  geo_transform );
+
+/**
+ * @brief Create Color Mesh
+*/
+osg::ref_ptr<osg::StateSet>  Build_Color_Mesh( osg::ref_ptr<osg::Node> loadedModel, 
+                                               const osg::Vec3f& Direction );
 
 
 #endif
