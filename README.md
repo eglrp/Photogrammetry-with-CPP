@@ -35,12 +35,22 @@ The base directory is divided into sections.
 
 - GDAL   : Geospatial Data Abstraction Library
 - OpenCV : C++ Image Processing and Computer Vision Library
+- OpenSceneGraph - Open Scene Graph 3D Library
 
 ### Mac OSX with MacPorts
 
 - texlive-latex-extra
 - cmake
 
+### Fedora Packages Required Using DNF/Yum
+
+- opencv-devel
+- gdal-devel
+- GeographicLib-devel
+- OpenSceneGraph-devel
+- ImageMagick
+- texlive-scheme-full (Pretty hefty, so scale down if needed).
+- cmake
 
 
 ## Building the Document
@@ -49,6 +59,8 @@ Build the CMake Project
 
     mkdir release
     
+    cd release
+
     cmake ..
     
     make

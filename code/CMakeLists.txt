@@ -57,13 +57,13 @@ endif()
 
 #  For some reason, OpenCV does not also link TBB
 #  despite depending on it.  Add it for completion
-find_package(TBB REQUIRED)
-if( TBB_FOUND )
-    message("Found TBB")
-    message("      Libs: ${TBB_LIBRARIES}")
-else()
-    message(FATAL_ERROR "Did not find TBB")
-endif()
+#find_package(TBB REQUIRED)
+#if( TBB_FOUND )
+#    message("Found TBB")
+#    message("      Libs: ${TBB_LIBRARIES}")
+#else()
+#    message(FATAL_ERROR "Did not find TBB")
+#endif()
 
 #-------------------------------#
 #-     Define Common Code      -#
