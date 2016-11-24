@@ -65,6 +65,15 @@ endif()
 #    message(FATAL_ERROR "Did not find TBB")
 #endif()
 
+
+#  Eigen3
+find_package( Eigen3 REQUIRED )
+if( EIGEN3_FOUND )
+    message("Found Eigen3: ${EIGEN3_VERSION}")
+    message("  Includes  : ${EIGEN3_INCLUDE_DIR}")
+endif()
+
+
 #-------------------------------#
 #-     Define Common Code      -#
 #-------------------------------#

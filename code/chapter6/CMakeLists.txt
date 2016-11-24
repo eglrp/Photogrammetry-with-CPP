@@ -21,3 +21,13 @@ target_link_libraries( geographiclib-magnetic-query
                        ${GeographicLib_LIBRARIES} )
                        
 
+#-----------------------------------------#
+#-       Build the GDAL Tidal Demo       -#
+#-----------------------------------------#
+add_executable( gdal-tidal
+                gdal-tidal.cpp )
+
+target_link_libraries( gdal-tidal
+                       common-utilities
+                       ${GDAL_LIBRARIES} )
+
