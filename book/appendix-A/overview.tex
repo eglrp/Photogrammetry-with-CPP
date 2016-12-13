@@ -10,14 +10,27 @@
 %------------------------%
 %-        Header        -%
 %------------------------%
-\addcontentsline{toc}{chapter}{Appendix A : Common Lookup Information}
-\chapter*{Appendix A : Common Lookup Information}
-
-This appendix seeks to provide the reader with common geographic and programming information.
+\addcontentsline{toc}{chapter}{Appendix A : Common GIS File Format Information}
+\chapter*{Appendix A : Common GIS File Format Information}
 
 
-%------------------------------------------%
-%-         Coordinate Lookup Table        -%
-%------------------------------------------%
-\input{appendix-A/Coordinate-Lookup-Table.tex}
+\section*{Raster Formats}
+
+
+%--------------------------%
+%-         GeoTiff        -%
+%--------------------------%
+\subsection*{GeoTiff}
+GeoTIFF is an extension of the common \emph{Tagged Image File Format} (TIFF) format.  TIFF
+is an image container format which contains both the raster pixel data plus image metadata.  
+GeoTIFF extends TIFF by providing metadata fields for coordinate systems, geo-referencing, and 
+map-projections.  For example, in QGIS or Google Earth, a GeoTIFF can be loaded and rendered 
+directly onto a 3D or 2D map.
+    
+GeoTIFF is one of the most widely used image raster formats and should be considered for many 
+imagery projects.  GDAL supports GeoTIFF for essentially all operations.  In addition, the 
+ubiquitous nature of the TIFF format means that a GeoTIFF image will be loadable by any TIFF-compliant
+image viewer (which is most if not all major tools).
+
+
 
