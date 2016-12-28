@@ -39,7 +39,8 @@ set( BOOK_LATEX_FILES
         chapter6/overview.tex
         chapter6/geographiclib-geoid.tex
         appendix-A/overview.tex
-        appendix-A/Coordinate-Lookup-Table.tex
+        appendix-B/overview.tex
+        appendix-B/Coordinate-Lookup-Table.tex
         ../code/chapter3/gdal-geographic-to-utm.cpp
         ../code/chapter3/geographiclib-ellipsoid-distance.cpp
         ../code/chapter3/great-circle-distance.cpp
